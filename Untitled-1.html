@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Loving Memory | Memorial Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+        /* The Slideshow Container Styles */
+        .slideshow-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2.5s ease-in-out; /* Smooth transition */
+            transform: scale(1);
+        }
+
+        /* The Ken Burns Zoom Effect */
+        .slideshow-image.active {
+            opacity: 1;
+            /* Animation lasts 15 seconds to ensure a very slow, graceful pace */
+            animation: slowZoom 15s linear forwards; 
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); } /* Subtle 15% zoom */
+        }
+
+        /* Responsive Form Container */
+        .form-container iframe {
+            width: 100%;
+            height: 850px; /* Adjust if your form is very long */
+            border: none;
+        }
+
+        .form-wrapper {
+        position: relative;
+        padding-bottom: 150%; /* Adjusts height for mobile */
+        height: 0;
+        overflow: hidden;
+        border-radius: 2rem;
+    }
+
+    .form-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        /* This makes the white form blend into the rounded container */
+        background-color: transparent; 
+    }
+
+    /* For Desktop */
+    @media (min-width: 768px) {
+        .form-wrapper {
+            padding-bottom: 1000px; /* Fixed height for larger screens */
+        }
+    }
+    </style>
+</head>
+<body class="bg-stone-950 text-stone-100 antialiased min-h-screen relative overflow-x-hidden">
+
+    <div id="background-slideshow" class="fixed inset-0 w-full h-full -z-20 bg-black">
+        <img src="IMG_6956.jpg" class="slideshow-image">
+        <img src="IMG_6957.jpg" class="slideshow-image">
+        <img src="https://picsum.photos/id/12/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/13/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/14/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/15/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/16/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/17/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/18/1920/1080" class="slideshow-image">
+        <img src="https://picsum.photos/id/19/1920/1080" class="slideshow-image">
+    </div>
+
+    <div class="fixed inset-0 bg-black/55 -z-10 backdrop-blur-[1px]"></div>
+
+    <div class="relative z-10">
+        
+        <header class="max-w-3xl mx-auto px-6 pt-24 pb-16 text-center">
+            <div class="mb-10 flex justify-center">
+                <div class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-white/80 shadow-2xl overflow-hidden bg-stone-800">
+                    <img src="IMG_6706.jpg" alt="Main Portrait" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">In Loving Memory of International Chief Adminstrator Apostle C.K. Attipoe</h1>
+            <p class="text-xl md:text-2xl italic text-stone-200 serif mb-8">1952 — 2026</p>
+            
+            <div class="w-24 h-px bg-white/40 mx-auto mb-10"></div>
+            
+            <p class="text-lg md:text-xl leading-relaxed text-stone-100 max-w-2xl mx-auto drop-shadow font-light">
+                A life so beautifully lived deserves to be beautifully remembered. 
+                Please share your stories and heartfelt memories below to help us celebrate their legacy.
+            </p>
+        </header>
+
+        <main class="max-w-4xl mx-auto px-4 mb-24">
+            <section class="bg-white/95 backdrop-blur-md rounded-[2.5rem] shadow-2xl overflow-hidden text-slate-900 border border-white/20">
+                <div class="p-10 text-center border-b border-stone-100">
+                    <h2 class="text-3xl font-bold text-stone-900">Sign the Condolence Book</h2>
+                    <p class="text-slate-500 mt-3 text-lg italic">Your messages bring immense comfort to our family.</p>
+                </div>
+                
+                <div class="form-wrapper">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSddjmTPFRfBppmzkjWVsWlRsNL_lIXVcwqB6iRmXIiE4_VrMg/viewform?embedded=true" width="640" height="1208" frameborder="0" marginheight="0" marginwidth="0">
+                        Loading…
+                    </iframe>
+                </div>
+            </section>
+        </main>
+
+        <section class="py-24 px-6 bg-stone-900/60 border-t border-white/10">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-4xl mb-16 text-white font-bold tracking-tight">Service Arrangements</h2>
+                
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-stone-800/50 backdrop-blur-lg p-10 rounded-3xl border border-white/10 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-white border-b border-white/10 pb-4">Memorial Service</h3>
+                        <div class="space-y-4 text-stone-200 text-lg">
+                            <p class="flex justify-between">
+                                <span class="font-semibold text-stone-400">Date:</span> 
+                                <span>Sat, March 14, 2026</span>
+                            </p>
+                            <p class="flex justify-between">
+                                <span class="font-semibold text-stone-400">Time:</span> 
+                                <span>11:00 AM</span>
+                            </p>
+                            <div class="text-left mt-4">
+                                <span class="font-semibold text-stone-400 block mb-1">Location:</span> 
+                                <span class="block text-stone-300">Grace Chapel<br>123 Peace Street, City, State</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-stone-800/50 backdrop-blur-lg p-10 rounded-3xl border border-white/10 shadow-xl text-left">
+                        <h3 class="text-2xl font-bold mb-6 text-white border-b border-white/10 pb-4 text-center">Reception</h3>
+                        <div class="space-y-4 text-stone-200 text-lg">
+                            <p class="flex justify-between">
+                                <span class="font-semibold text-stone-400">Time:</span> 
+                                <span>Following Service</span>
+                            </p>
+                            <div class="mt-4">
+                                <span class="font-semibold text-stone-400 block mb-1">Location:</span> 
+                                <span class="block text-stone-300 italic">The Community Garden Room<br>456 Willow Lane, City, State</span>
+                            </div>
+                            <p class="mt-8 text-sm text-stone-500 text-center pt-6 border-t border-white/5">
+                                In lieu of flowers, donations may be made to [Charity Name].
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-20 text-center text-stone-500 text-sm tracking-[0.2em] uppercase">
+            <p>&copy; 2026 — With Love, The [Last Name] Family</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.slideshow-image');
+            let currentIndex = 0;
+            const totalImages = images.length;
+            const intervalTime = 10000; // Switch images every 10 seconds
+
+            // Show first image immediately
+            if (totalImages > 0) {
+                images[currentIndex].classList.add('active');
+            }
+
+            function cycleImages() {
+                // Remove active to fade out current and reset zoom
+                images[currentIndex].classList.remove('active');
+                
+                // Index increment
+                currentIndex = (currentIndex + 1) % totalImages;
+                
+                // Add active to fade in and trigger Ken Burns zoom
+                images[currentIndex].classList.add('active');
+            }
+
+            setInterval(cycleImages, intervalTime);
+        });
+    </script>
+
+</body>
+</html>
