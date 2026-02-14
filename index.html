@@ -13,7 +13,7 @@
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
-        /* The Slideshow Container Styles */
+            /* Updated Slideshow Styles */
         .slideshow-image {
             position: absolute;
             inset: 0;
@@ -21,20 +21,20 @@
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            transition: opacity 2.5s ease-in-out; /* Smooth transition */
-            transform: scale(1);
+            /* Longer transition for a 'dreamier' look */
+            transition: opacity 3s ease-in-out; 
+            z-index: -2;
         }
 
-        /* The Ken Burns Zoom Effect */
         .slideshow-image.active {
             opacity: 1;
-            /* Animation lasts 15 seconds to ensure a very slow, graceful pace */
+            z-index: -1; /* Higher than the non-active images */
             animation: slowZoom 15s linear forwards; 
         }
 
         @keyframes slowZoom {
-            from { transform: scale(1.05); }
-            to { transform: scale(1.15); } /* Subtle 15% zoom */
+            from { transform: scale(1.02); }
+            to { transform: scale(1.12); }
         }
 
         /* Responsive Form Container */
@@ -223,30 +223,32 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const images = document.querySelectorAll('.slideshow-image');
-            let currentIndex = 0;
-            const totalImages = images.length;
-            const intervalTime = 10000; // Switch images every 10 seconds
+            document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('.slideshow-image');
+        let currentIndex = 0;
+        const totalImages = images.length;
+        const displayTime = 8000; // Time each image stays fully visible
 
-            // Show first image immediately
-            if (totalImages > 0) {
-                images[currentIndex].classList.add('active');
-            }
+        if (totalImages > 0) {
+            images[currentIndex].classList.add('active');
+        }
 
-            function cycleImages() {
-                // Remove active to fade out current and reset zoom
+        function cycleImages() {
+            const nextIndex = (currentIndex + 1) % totalImages;
+            
+            // 1. Bring in the next image (fades in on top)
+            images[nextIndex].classList.add('active');
+
+            // 2. Wait a few seconds for the fade to finish, then clean up the old one
+            // This prevents the 'black flash'
+            setTimeout(() => {
                 images[currentIndex].classList.remove('active');
-                
-                // Index increment
-                currentIndex = (currentIndex + 1) % totalImages;
-                
-                // Add active to fade in and trigger Ken Burns zoom
-                images[currentIndex].classList.add('active');
-            }
+                currentIndex = nextIndex;
+            }, 3000); // This matches your CSS transition time
+        }
 
-            setInterval(cycleImages, intervalTime);
-        });
+        setInterval(cycleImages, displayTime);
+    });
     </script>
 
 </body>
